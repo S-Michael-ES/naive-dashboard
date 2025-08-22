@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 # Define the URL of your Flask API
-FLASK_API_URL = "http://127.0.0.1:5000/api/artists"
+FLASK_API_URL = "https://naive-api-314809ea71f0.herokuapp.com/api/artists"
 
 st.set_page_config(page_title="Naive Streaming", layout="wide")
 st.title("Naive Streaming")
