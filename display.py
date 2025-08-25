@@ -13,13 +13,18 @@ st.markdown("""
 Howdy!
 I created this project to implement skills and technologies I have learned in university into a personal project.
             
-Music is a huge passion of mine, and I found inspiration in the shortcomings and backlash facing streaming platforms today.
+Music is a huge passion of mine, so I wanted to create a custom space where my friends and I could upload and listen to our music.
 """)
 
 st.subheader("Updates")
 st.markdown("""
+Ver 0.2:
+- Hosted backend with Heroku
+- Published frontend with Streamlit
+
+""")
+st.markdown("""
 Ver 0.1:
-This version implements:
 - PostGreSQL database
 - Flask backend
 - Streamlit frontend
