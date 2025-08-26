@@ -2,8 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-# Define the URL of your Flask API
-FLASK_API_URL = "https://naive-api-314809ea71f0.herokuapp.com/api/artists"
+BASE_API_URL = "https://naive-api.herokuapp.com"
 
 st.set_page_config(page_title="Naive Streaming", layout="wide")
 st.title("Naive Streaming")
@@ -31,22 +30,25 @@ Ver 0.1:
 
 """)
 
-# --- Fetch and Display Data ---
-try:
-    # Make a request to the API
-    response = requests.get(FLASK_API_URL)
-    response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
-    
-    artists_data = response.json()
+st.header("All Tracks")
 
-    if artists_data:
-        # Convert the list of dictionaries to a pandas DataFrame
-        df = pd.DataFrame(artists_data)
-        
-        # Display the data in a table
-        st.dataframe(df, use_container_width=True)
+try:
+    TRACKS_API_URL = f"{BASE_API_URL}/api/tracks"
+    
+    response = requests.get(TRACKS_API_URL)
+    response.raise_for_status()
+    
+    tracks_data = response.json()
+
+    if tracks_data:
+        for track in tracks_data:
+            st.markdown(f"**{track['artist']}** - {track['title']}")
+            
+            st.audio(track['audio_url'])
+            
+            st.divider() 
     else:
-        st.write("No artists found.")
+        st.write("No tracks found.")
 
 except requests.exceptions.RequestException as e:
-    st.error(f"Could not connect to the API. Make sure the Flask server is running. Error: {e}")
+    st.error(f"Could not connect to the API. Error: {e}")
