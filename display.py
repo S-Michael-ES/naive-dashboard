@@ -16,19 +16,30 @@ Music is a huge passion of mine, so I wanted to create a custom space where my f
 """)
 
 st.subheader("Updates")
-st.markdown("""
-Ver 0.2:
-- Hosted backend with Heroku
-- Published frontend with Streamlit
 
-""")
-st.markdown("""
-Ver 0.1:
-- PostGreSQL database
-- Flask backend
-- Streamlit frontend
+updates_html = """
+<div style="height:200px;overflow-y:scroll;border:1px solid #ddd;padding:10px;border-radius:5px;">
+    <strong>Ver 0.3:</strong>
+    <ul>
+        <li>Connected AWS S3 bucket for audio files</li>
+        <li>Added scrollable update box</li>
+        <li>Added playable tracks</li>
+    </ul>
+    <strong>Ver 0.2:</strong>
+    <ul>
+        <li>Hosted backend with Heroku</li>
+        <li>Published frontend with Streamlit</li>
+    </ul>
+    <strong>Ver 0.1:</strong>
+    <ul>
+        <li>PostGreSQL database</li>
+        <li>Flask backend</li>
+        <li>Streamlit frontend</li>
+    </ul>
+</div>
+"""
 
-""")
+st.markdown(updates_html, unsafe_allow_html=True)
 
 st.header("All Tracks")
 
