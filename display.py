@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-BASE_API_URL = "https://naive-api.herokuapp.com"
+BASE_API_URL = "https://naive-api-314809ea71f0.herokuapp.com/"
 
 st.set_page_config(page_title="Naive Streaming", layout="wide")
 st.title("Naive Streaming")
